@@ -42,9 +42,12 @@ const btnBuscar = document.getElementById("buscar");
 btnBuscar.addEventListener("click",()=>{
     let tcod = document.getElementById("codigo").value; 
     let pro = inventario.busqueda(tcod);
-    if(pro === null)
-        document.getElementById("listadoTotal").innerHTML += pro;
-    else
-        document.getElementById("listadoTotal").innerHTML += pro.getInfo();
+    // if(pro === null)
+    //     document.getElementById("listadoTotal").innerHTML += pro;
+    // else
+    //     document.getElementById("listadoTotal").innerHTML += pro.getInfo();
+
+    document.getElementById("listadoTotal").innerHTML += pro;
+    listado.innerHTML += "Se realizo la busqueda del producto"
      
 });

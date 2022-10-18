@@ -68,7 +68,7 @@ export default class Inventario{
             let result = '';
             
             while (current) {
-                result += current.codigo + '->' + current.nombre + '->' + current.cantidad + '->' + current.costo;
+                result += `Codigo: ${current.codigo}, Nombre: ${current.nombre} Cantidad: ${current.cantidad} Costo: ${current.costo}`;
                 current = current.next;
             }
     
@@ -84,7 +84,8 @@ export default class Inventario{
             let result = '';
             
             while (current) {
-                result = current.numero + '->' + result ;
+                //result = current.numero + '->' + result ;
+                result = `Codigo: ${current.codigo}, Nombre: ${current.nombre} Cantidad: ${current.cantidad} Costo: ${current.costo} ${result} <br />`;
                 current = current.next;
             }
     
@@ -92,21 +93,38 @@ export default class Inventario{
         }
     }
 
+    // busqueda(codigo){
+    //     let inicio = 0;
+    //     let fin = this.lista.length - 1;
+    //     let mitad = Math.floor((inicio + fin) / 2);
+    //     let resultado = null;
+    //     while (inicio <= fin) {
+    //         if (this.lista[mitad].codigo === codigo) {
+    //             resultado = this.lista[mitad];
+    //             break;
+    //         } else if (this.lista[mitad].codigo < codigo) {
+    //             inicio = mitad + 1;
+    //         } else
+    //             fin = mitad - 1;
+    //         mitad = Math.floor((inicio + fin) / 2);
+    //     }
+    //     return resultado;
+    // }
+
     busqueda(codigo){
-        let inicio = 0;
-        let fin = this.lista.length - 1;
-        let mitad = Math.floor((inicio + fin) / 2);
-        let resultado = null;
-        while (inicio <= fin) {
-            if (this.lista[mitad].codigo === codigo) {
-                resultado = this.lista[mitad];
-                break;
-            } else if (this.lista[mitad].codigo < codigo) {
-                inicio = mitad + 1;
-            } else
-                fin = mitad - 1;
-            mitad = Math.floor((inicio + fin) / 2);
+        let current = this.primero;
+        let previus = null;
+        let result = null;
+
+        while(current != null){
+            if(current.numero === codigo){
+                result = `Codigo: ${current.codigo}, Nombre: ${current.nombre} Cantidad: ${current.cantidad} Costo: ${current.costo}`;
+            }
+            else{
+                previus=current;
+                current=current.next;
+            }
         }
-        return resultado;
+        return result;
     }
 }
