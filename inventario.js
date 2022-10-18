@@ -68,7 +68,7 @@ export default class Inventario{
             let result = '';
             
             while (current) {
-                result += current.numero + '->';
+                result += current.codigo + '->' + current.nombre + '->' + current.cantidad + '->' + current.costo;
                 current = current.next;
             }
     
